@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:DataServices>
+    <Schema Namespace="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <EntityType Name="CompanyConfigType">
+        <Key>
+          <PropertyRef Name="CompanyCode"/>
+        </Key>
+        <Property Name="CompanyCode" Type="Edm.String" MaxLength="4" Nullable="false"/>
+        <Property Name="CompanyName" Type="Edm.String" MaxLength="60"/>
+        <Property Name="Country" Type="Edm.String" MaxLength="3"/>
+        <Property Name="IsActive" Type="Edm.Boolean" DefaultValue="false"/>
+        <Property Name="IsActiveCriticality" Type="Edm.Int32"/>
+        <Property Name="ConservationProvider" Type="Edm.String" MaxLength="30"/>
+        <Property Name="ApiEndpoint" Type="Edm.String" MaxLength="255"/>
+        <Property Name="ApiKey" Type="Edm.String" MaxLength="100"/>
+        <Property Name="MaxRetry" Type="Edm.Int32" DefaultValue="3"/>
+        <Property Name="RetentionYears" Type="Edm.Int32" DefaultValue="10"/>
+        <Property Name="DocumentTypes" Type="Edm.String" MaxLength="255"/>
+        <Property Name="NotificationEmail" Type="Edm.String" MaxLength="255"/>
+        <Property Name="LastModifiedAt" Type="Edm.DateTimeOffset" Precision="7"/>
+        <Property Name="LastModifiedBy" Type="Edm.String" MaxLength="12"/>
+      </EntityType>
+
+      <EntityContainer Name="EntityContainer">
+        <EntitySet Name="CompanyConfigs" EntityType="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType"/>
+      </EntityContainer>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
