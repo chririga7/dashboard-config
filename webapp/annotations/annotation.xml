@@ -14,14 +14,13 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local.annotation">
 
-      <!-- ===== ANNOTATIONS per CompanyConfigs ===== -->
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType">
 
-        <!-- === HeaderInfo === -->
+        <!-- HeaderInfo -->
         <Annotation Term="UI.HeaderInfo">
           <Record Type="UI.HeaderInfoType">
-            <PropertyValue Property="TypeName" String="{i18n>companyConfig}"/>
-            <PropertyValue Property="TypeNamePlural" String="{i18n>companyConfigs}"/>
+            <PropertyValue Property="TypeName" String="Configurazione Società"/>
+            <PropertyValue Property="TypeNamePlural" String="Configurazioni Società"/>
             <PropertyValue Property="Title">
               <Record Type="UI.DataField">
                 <PropertyValue Property="Value" Path="CompanyCode"/>
@@ -35,7 +34,7 @@
           </Record>
         </Annotation>
 
-        <!-- === Selection Fields (filtri) === -->
+        <!-- Selection Fields -->
         <Annotation Term="UI.SelectionFields">
           <Collection>
             <PropertyPath>CompanyCode</PropertyPath>
@@ -45,195 +44,142 @@
           </Collection>
         </Annotation>
 
-        <!-- === LineItem (colonne tabella) === -->
+        <!-- LineItem -->
         <Annotation Term="UI.LineItem">
           <Collection>
             <Record Type="UI.DataField">
               <PropertyValue Property="Value" Path="CompanyCode"/>
-              <PropertyValue Property="Label" String="{i18n>companyCode}"/>
+              <PropertyValue Property="Label" String="Codice Società"/>
             </Record>
             <Record Type="UI.DataField">
               <PropertyValue Property="Value" Path="CompanyName"/>
-              <PropertyValue Property="Label" String="{i18n>companyName}"/>
+              <PropertyValue Property="Label" String="Nome Società"/>
             </Record>
             <Record Type="UI.DataField">
               <PropertyValue Property="Value" Path="Country"/>
-              <PropertyValue Property="Label" String="{i18n>country}"/>
+              <PropertyValue Property="Label" String="Paese"/>
             </Record>
             <Record Type="UI.DataFieldForAnnotation">
               <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#IsActive"/>
-              <PropertyValue Property="Label" String="{i18n>isActive}"/>
+              <PropertyValue Property="Label" String="Attiva"/>
             </Record>
             <Record Type="UI.DataField">
               <PropertyValue Property="Value" Path="ConservationProvider"/>
-              <PropertyValue Property="Label" String="{i18n>conservationProvider}"/>
+              <PropertyValue Property="Label" String="Provider Conservazione"/>
             </Record>
             <Record Type="UI.DataField">
               <PropertyValue Property="Value" Path="RetentionYears"/>
-              <PropertyValue Property="Label" String="{i18n>retentionYears}"/>
+              <PropertyValue Property="Label" String="Anni Conservazione"/>
             </Record>
             <Record Type="UI.DataField">
               <PropertyValue Property="Value" Path="LastModifiedAt"/>
-              <PropertyValue Property="Label" String="{i18n>lastModifiedAt}"/>
+              <PropertyValue Property="Label" String="Ultima Modifica"/>
             </Record>
             <Record Type="UI.DataField">
               <PropertyValue Property="Value" Path="LastModifiedBy"/>
-              <PropertyValue Property="Label" String="{i18n>lastModifiedBy}"/>
+              <PropertyValue Property="Label" String="Modificato Da"/>
             </Record>
           </Collection>
         </Annotation>
 
-        <!-- === DataPoint per IsActive (criticality) === -->
+        <!-- DataPoint IsActive -->
         <Annotation Term="UI.DataPoint" Qualifier="IsActive">
           <Record Type="UI.DataPointType">
             <PropertyValue Property="Value" Path="IsActive"/>
-            <PropertyValue Property="Title" String="{i18n>isActive}"/>
+            <PropertyValue Property="Title" String="Attiva"/>
             <PropertyValue Property="Criticality" Path="IsActiveCriticality"/>
           </Record>
         </Annotation>
 
-        <!-- === ApiKey: nascosto dalla List Report === -->
-        <Annotation Term="UI.Hidden" Bool="true" Qualifier="ApiKeyHidden"/>
-
-        <!-- === Facets (Object Page) === -->
+        <!-- Facets -->
         <Annotation Term="UI.Facets">
           <Collection>
             <Record Type="UI.ReferenceFacet">
               <PropertyValue Property="ID" String="DatiSocieta"/>
-              <PropertyValue Property="Label" String="{i18n>sectionDatiSocieta}"/>
+              <PropertyValue Property="Label" String="Dati Società"/>
               <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#DatiSocieta"/>
             </Record>
             <Record Type="UI.ReferenceFacet">
               <PropertyValue Property="ID" String="ConfigProvider"/>
-              <PropertyValue Property="Label" String="{i18n>sectionConfigProvider}"/>
+              <PropertyValue Property="Label" String="Configurazione Provider"/>
               <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ConfigProvider"/>
             </Record>
             <Record Type="UI.ReferenceFacet">
               <PropertyValue Property="ID" String="ParamConservazione"/>
-              <PropertyValue Property="Label" String="{i18n>sectionParamConservazione}"/>
+              <PropertyValue Property="Label" String="Parametri Conservazione"/>
               <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#ParamConservazione"/>
             </Record>
           </Collection>
         </Annotation>
 
-        <!-- === FieldGroup: Dati Societa === -->
+        <!-- FieldGroup: Dati Società -->
         <Annotation Term="UI.FieldGroup" Qualifier="DatiSocieta">
           <Record Type="UI.FieldGroupType">
             <PropertyValue Property="Data">
               <Collection>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="CompanyCode"/>
-                  <PropertyValue Property="Label" String="{i18n>companyCode}"/>
+                  <PropertyValue Property="Label" String="Codice Società"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="CompanyName"/>
-                  <PropertyValue Property="Label" String="{i18n>companyName}"/>
+                  <PropertyValue Property="Label" String="Nome Società"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="Country"/>
-                  <PropertyValue Property="Label" String="{i18n>country}"/>
+                  <PropertyValue Property="Label" String="Paese"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="IsActive"/>
-                  <PropertyValue Property="Label" String="{i18n>isActive}"/>
+                  <PropertyValue Property="Label" String="Attiva"/>
                 </Record>
               </Collection>
             </PropertyValue>
           </Record>
         </Annotation>
 
-        <!-- === FieldGroup: Configurazione Provider === -->
+        <!-- FieldGroup: Configurazione Provider -->
         <Annotation Term="UI.FieldGroup" Qualifier="ConfigProvider">
           <Record Type="UI.FieldGroupType">
             <PropertyValue Property="Data">
               <Collection>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="ConservationProvider"/>
-                  <PropertyValue Property="Label" String="{i18n>conservationProvider}"/>
+                  <PropertyValue Property="Label" String="Provider Conservazione"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="ApiEndpoint"/>
-                  <PropertyValue Property="Label" String="{i18n>apiEndpoint}"/>
+                  <PropertyValue Property="Label" String="Endpoint API"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="ApiKey"/>
-                  <PropertyValue Property="Label" String="{i18n>apiKey}"/>
+                  <PropertyValue Property="Label" String="API Key"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="MaxRetry"/>
-                  <PropertyValue Property="Label" String="{i18n>maxRetry}"/>
+                  <PropertyValue Property="Label" String="Tentativi Max"/>
                 </Record>
               </Collection>
             </PropertyValue>
           </Record>
         </Annotation>
 
-        <!-- === FieldGroup: Parametri Conservazione === -->
+        <!-- FieldGroup: Parametri Conservazione -->
         <Annotation Term="UI.FieldGroup" Qualifier="ParamConservazione">
           <Record Type="UI.FieldGroupType">
             <PropertyValue Property="Data">
               <Collection>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="RetentionYears"/>
-                  <PropertyValue Property="Label" String="{i18n>retentionYears}"/>
+                  <PropertyValue Property="Label" String="Anni Conservazione"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="DocumentTypes"/>
-                  <PropertyValue Property="Label" String="{i18n>documentTypes}"/>
+                  <PropertyValue Property="Label" String="Tipi Documento"/>
                 </Record>
                 <Record Type="UI.DataField">
                   <PropertyValue Property="Value" Path="NotificationEmail"/>
-                  <PropertyValue Property="Label" String="{i18n>notificationEmail}"/>
-                </Record>
-              </Collection>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-
-        <!-- === Value Lists === -->
-
-        <!-- Value List: CompanyCode -->
-        <Annotation Term="Common.ValueList" Qualifier="CompanyCode">
-          <Record Type="Common.ValueListType">
-            <PropertyValue Property="CollectionPath" String="CompanyConfigs"/>
-            <PropertyValue Property="Parameters">
-              <Collection>
-                <Record Type="Common.ValueListParameterInOut">
-                  <PropertyValue Property="LocalDataProperty" PropertyPath="CompanyCode"/>
-                  <PropertyValue Property="ValueListProperty" String="CompanyCode"/>
-                </Record>
-                <Record Type="Common.ValueListParameterDisplayOnly">
-                  <PropertyValue Property="ValueListProperty" String="CompanyName"/>
-                </Record>
-              </Collection>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-
-        <!-- Value List: Country -->
-        <Annotation Term="Common.ValueList" Qualifier="Country">
-          <Record Type="Common.ValueListType">
-            <PropertyValue Property="CollectionPath" String="CompanyConfigs"/>
-            <PropertyValue Property="Parameters">
-              <Collection>
-                <Record Type="Common.ValueListParameterInOut">
-                  <PropertyValue Property="LocalDataProperty" PropertyPath="Country"/>
-                  <PropertyValue Property="ValueListProperty" String="Country"/>
-                </Record>
-              </Collection>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-
-        <!-- Value List: ConservationProvider -->
-        <Annotation Term="Common.ValueList" Qualifier="ConservationProvider">
-          <Record Type="Common.ValueListType">
-            <PropertyValue Property="CollectionPath" String="CompanyConfigs"/>
-            <PropertyValue Property="Parameters">
-              <Collection>
-                <Record Type="Common.ValueListParameterInOut">
-                  <PropertyValue Property="LocalDataProperty" PropertyPath="ConservationProvider"/>
-                  <PropertyValue Property="ValueListProperty" String="ConservationProvider"/>
+                  <PropertyValue Property="Label" String="Email Notifiche"/>
                 </Record>
               </Collection>
             </PropertyValue>
@@ -242,12 +188,11 @@
 
       </Annotations>
 
-      <!-- === Property-level annotations === -->
+      <!-- Property-level annotations -->
 
-      <!-- CompanyCode: Immutable (non modificabile in edit) -->
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/CompanyCode">
         <Annotation Term="Core.Immutable" Bool="true"/>
-        <Annotation Term="Common.Label" String="{i18n>companyCode}"/>
+        <Annotation Term="Common.Label" String="Codice Società"/>
         <Annotation Term="Common.ValueList">
           <Record Type="Common.ValueListType">
             <PropertyValue Property="CollectionPath" String="CompanyConfigs"/>
@@ -267,12 +212,12 @@
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/CompanyName">
-        <Annotation Term="Common.Label" String="{i18n>companyName}"/>
+        <Annotation Term="Common.Label" String="Nome Società"/>
         <Annotation Term="Core.Computed" Bool="true"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/Country">
-        <Annotation Term="Common.Label" String="{i18n>country}"/>
+        <Annotation Term="Common.Label" String="Paese"/>
         <Annotation Term="Common.ValueList">
           <Record Type="Common.ValueListType">
             <PropertyValue Property="CollectionPath" String="CompanyConfigs"/>
@@ -289,11 +234,11 @@
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/IsActive">
-        <Annotation Term="Common.Label" String="{i18n>isActive}"/>
+        <Annotation Term="Common.Label" String="Attiva"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/ConservationProvider">
-        <Annotation Term="Common.Label" String="{i18n>conservationProvider}"/>
+        <Annotation Term="Common.Label" String="Provider Conservazione"/>
         <Annotation Term="Common.ValueList">
           <Record Type="Common.ValueListType">
             <PropertyValue Property="CollectionPath" String="CompanyConfigs"/>
@@ -310,37 +255,37 @@
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/ApiEndpoint">
-        <Annotation Term="Common.Label" String="{i18n>apiEndpoint}"/>
+        <Annotation Term="Common.Label" String="Endpoint API"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/ApiKey">
-        <Annotation Term="Common.Label" String="{i18n>apiKey}"/>
+        <Annotation Term="Common.Label" String="API Key"/>
         <Annotation Term="UI.ExcludeFromNavigationContext" Bool="true"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/MaxRetry">
-        <Annotation Term="Common.Label" String="{i18n>maxRetry}"/>
+        <Annotation Term="Common.Label" String="Tentativi Max"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/RetentionYears">
-        <Annotation Term="Common.Label" String="{i18n>retentionYears}"/>
+        <Annotation Term="Common.Label" String="Anni Conservazione"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/DocumentTypes">
-        <Annotation Term="Common.Label" String="{i18n>documentTypes}"/>
+        <Annotation Term="Common.Label" String="Tipi Documento"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/NotificationEmail">
-        <Annotation Term="Common.Label" String="{i18n>notificationEmail}"/>
+        <Annotation Term="Common.Label" String="Email Notifiche"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/LastModifiedAt">
-        <Annotation Term="Common.Label" String="{i18n>lastModifiedAt}"/>
+        <Annotation Term="Common.Label" String="Ultima Modifica"/>
         <Annotation Term="Core.Computed" Bool="true"/>
       </Annotations>
 
       <Annotations Target="com.sap.gateway.srvd_a2x.zsd_doc_config.v0001.CompanyConfigType/LastModifiedBy">
-        <Annotation Term="Common.Label" String="{i18n>lastModifiedBy}"/>
+        <Annotation Term="Common.Label" String="Modificato Da"/>
         <Annotation Term="Core.Computed" Bool="true"/>
       </Annotations>
 
