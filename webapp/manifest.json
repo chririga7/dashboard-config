@@ -5,7 +5,7 @@
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
-      "version": "0.0.1"
+      "version": "0.0.2"
     },
     "title": "{{appTitle}}",
     "description": "{{appDescription}}",
@@ -15,7 +15,7 @@
     },
     "dataSources": {
       "mainService": {
-        "uri": "./",
+        "uri": "/sap/opu/odata4/sap/zsb_doc_admin_tenant/srvd_a2x/sap/zsd_doc_admin_tenant/0001/",
         "type": "OData",
         "settings": {
           "annotations": [
@@ -70,6 +70,7 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
+        "sap.fe.core": {},
         "sap.fe.templates": {},
         "sap.ui.fl": {}
       }
@@ -101,30 +102,69 @@
       "routes": [
         {
           "pattern": ":?query:",
-          "name": "CompanyConfigsList",
-          "target": "CompanyConfigsList"
+          "name": "MainList",
+          "target": "MainList"
         },
         {
-          "pattern": "CompanyConfigs({key}):?query:",
-          "name": "CompanyConfigsObjectPage",
-          "target": "CompanyConfigsObjectPage"
+          "pattern": "Company({key}):?query:",
+          "name": "CompanyObjectPage",
+          "target": "CompanyObjectPage"
+        },
+        {
+          "pattern": "Config({key}):?query:",
+          "name": "ConfigObjectPage",
+          "target": "ConfigObjectPage"
+        },
+        {
+          "pattern": "DocType({key}):?query:",
+          "name": "DocTypeObjectPage",
+          "target": "DocTypeObjectPage"
         }
       ],
       "targets": {
-        "CompanyConfigsList": {
+        "MainList": {
           "type": "Component",
-          "id": "CompanyConfigsList",
+          "id": "MainList",
           "name": "sap.fe.templates.ListReport",
           "options": {
             "settings": {
-              "contextPath": "/CompanyConfigs",
+              "contextPath": "/Company",
               "variantManagement": "Page",
               "navigation": {
-                "CompanyConfigs": {
+                "Company": {
                   "detail": {
-                    "route": "CompanyConfigsObjectPage"
+                    "route": "CompanyObjectPage"
+                  }
+                },
+                "Config": {
+                  "detail": {
+                    "route": "ConfigObjectPage"
+                  }
+                },
+                "DocType": {
+                  "detail": {
+                    "route": "DocTypeObjectPage"
                   }
                 }
+              },
+              "views": {
+                "paths": [
+                  {
+                    "key": "tabCompany",
+                    "contextPath": "/Company",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Company"
+                  },
+                  {
+                    "key": "tabConfig",
+                    "contextPath": "/Config",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Config"
+                  },
+                  {
+                    "key": "tabDocType",
+                    "contextPath": "/DocType",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#DocType"
+                  }
+                ]
               },
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
@@ -137,13 +177,35 @@
             }
           }
         },
-        "CompanyConfigsObjectPage": {
+        "CompanyObjectPage": {
           "type": "Component",
-          "id": "CompanyConfigsObjectPage",
+          "id": "CompanyObjectPage",
           "name": "sap.fe.templates.ObjectPage",
           "options": {
             "settings": {
-              "contextPath": "/CompanyConfigs",
+              "contextPath": "/Company",
+              "editableHeaderContent": false
+            }
+          }
+        },
+        "ConfigObjectPage": {
+          "type": "Component",
+          "id": "ConfigObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/Config",
+              "editableHeaderContent": false
+            }
+          }
+        },
+        "DocTypeObjectPage": {
+          "type": "Component",
+          "id": "DocTypeObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "contextPath": "/DocType",
               "editableHeaderContent": false
             }
           }

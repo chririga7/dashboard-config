@@ -17,7 +17,7 @@ server:
       afterMiddleware: compression
       configuration:
         services:
-          - urlPath: /sap/opu/odata4/sap/zsd_doc_config/srvd_a2x/sap/zsd_doc_config/0001/
+          - urlPath: /sap/opu/odata4/sap/zsb_doc_admin_tenant/srvd_a2x/sap/zsd_doc_admin_tenant/0001/
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/
             generateMockData: false
