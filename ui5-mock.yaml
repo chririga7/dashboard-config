@@ -15,10 +15,12 @@ server:
     - name: sap-fe-mockserver
       afterMiddleware: compression
       configuration:
-        service:
-          urlBasePath: /sap/opu/odata4/sap/zsd_doc_config/srvd_a2x/sap/zsd_doc_config/0001
-          metadataXmlPath: ./webapp/localService/mainService/metadata.xml
-          mockdataRootPath: ./webapp/localService/mainService
-          generateMockData: false
+        services:
+          - urlPath: /sap/opu/odata4/sap/zsd_doc_config/srvd_a2x/sap/zsd_doc_config/0001/
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/
+            generateMockData: false
+            watch: true
         annotations:
-          - localPath: ./webapp/annotations/annotation.xml
+          - urlPath: /annotations/annotation.xml
+            localPath: ./webapp/annotations/annotation.xml
